@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  text-transform: capitalize;
+}
+.header {
+    background-color: #2c3e50; /* Dark blue color */
+    border-bottom: 2px solid #f1c40f; /* Gold border for a touch of elegance */
+  }
+  
+  .logo h1 {
+    font-family: 'Amiri', serif;
+    font-size: 28px;
+  }
+  
+  .navbar-nav .nav-item .nav-link h4 {
+    font-family: 'Amiri', serif;
+  }
+  
+  .menu i {
+    font-size: 28px;
+    color: #f1c40f; /* Gold color for menu icon */
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-nav {
+ 
+      background-color: #2c3e50; /* Dark blue background for mobile menu */
+      border-top: 2px solid #f1c40f; /* Gold top border for menu */
+      /* padding: 10px; */
+    }
+  }
+  
+  .scrollable-comments {
+    max-height: 200px; /* Adjust height as needed */
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  /* style.css */
+  
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(to right, #4f46e5, #7c3aed, #ec4899);
+    color: white;
+    z-index: 20;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .logo span {
+    color: #f59e0b;
+    text-transform: uppercase;
+  
+  }
+  
+  .menu-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom right, #4f46e5, #7c3aed, #ec4899);
+    text-align: center;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-in-out;
+    z-index: 10;
+  }
+  
+  .nav-menu.open {
+    transform: translateY(0);
+  }
+  
+  .nav-menu button {
+    color: white;
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .nav-menu button:hover {
+    background-color: #f59e0b;
+    color: black;
+  }
+  
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 30;
+  }
+  
+  .popup {
+    background: white;
+    color: #333;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .popup h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .popup p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .popup button {
+    background-color: #f59e0b;
+    color: black;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .popup button:hover {
+    background-color: #eab308;
+  }
+  
+  .popup button.close {
+    background-color: #ef4444;
+    color: white;
+  }
+  
+  .popup button.close:hover {
+    background-color: #dc2626;
+  }
+  
