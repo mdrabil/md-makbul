@@ -1,3 +1,3 @@
-const host= 'http://localhost:8080/api'
+const host= 'https://makbul.vercel.app'
 
 export default host
