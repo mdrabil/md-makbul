@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import 'tailwindcss/tailwind.css';
 import { useNavigate } from 'react-router-dom';
 import DisplayPost from './DisplayPost'; // Import the DisplayPost component
-import host from './host';
+import {host} from './host';
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);

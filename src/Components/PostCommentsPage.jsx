@@ -5,7 +5,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'tailwindcss/tailwind.css';
 import { useNavigate } from 'react-router-dom';
-import host from './host';
+import {host} from './host';
 const CommentsPage = () => {
   const { postId } = useParams();
   const [comments, setComments] = useState([]);

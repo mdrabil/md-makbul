@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import host from './host';
+import {host} from './host';
 const UpdatePost = () => {
   const { id } = useParams(); // Get the post ID from URL params
   const navigate = useNavigate();

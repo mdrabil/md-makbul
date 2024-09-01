@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 // import { GoogleLogin } from '@react-oauth/google'; // Uncomment if using Google login
 import 'bootstrap/dist/css/bootstrap.min.css';
-import host from './host';
+import {host} from './host';
 const Sign = () => {
   const navigate = useNavigate();
 
