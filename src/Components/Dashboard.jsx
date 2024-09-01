@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {host} from './host';
+import { host } from './host';
 
 const Dashboard = () => {
   const [user, setUser] = useState({ name: 'John Doe', email: 'john@example.com' }); // Dummy user data
