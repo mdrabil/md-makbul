@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600">
+    <div className="flex flex-col h-screen w-full bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600">
       {/* Header Section */}
       {/* Add content or remove if not needed */}
 
