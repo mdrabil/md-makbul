@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { host } from './host';
 
 const Dashboard = () => {
-  const [user, setUser] = useState({ name: 'John Doe', email: 'john@example.com' }); // Dummy user data
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -37,10 +36,6 @@ const Dashboard = () => {
     } catch (err) {
       setError('Failed to delete post');
     }
-  };
-
-  const toggleTheme = () => {
-    setIsDarkMode((prevMode) => !prevMode);
   };
 
   const handleAddPost = () => {
@@ -77,11 +72,10 @@ const Dashboard = () => {
               onClick={handleBack}
               className="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-3 rounded"
             >
-              <i class="ri-arrow-left-line"></i>
+              <i className="ri-arrow-left-line"></i>
             </button>
             <div>
               <h1 className="text-xl font-bold">Dashboard</h1>
- 
             </div>
           </div>
           <div className="flex items-center space-x-2">
@@ -91,12 +85,6 @@ const Dashboard = () => {
             >
               Add Post
             </button>
-            {/* <button
-              onClick={toggleTheme}
-              className={`px-3 py-2 rounded text-sm ${isDarkMode ? 'bg-white text-black' : 'bg-black text-white'}`}
-            >
-              {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-            </button> */}
           </div>
         </div>
       </div>
@@ -116,7 +104,6 @@ const Dashboard = () => {
                 <th className="py-2 px-3 border-b-2 border-gray-300">#</th>
                 <th className="py-2 px-3 border-b-2 border-gray-300">Post Name</th>
                 <th className="py-2 px-3 border-b-2 border-gray-300">Written by</th>
-                <th className="py-2 px-3 border-b-2 border-gray-300">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -125,7 +112,7 @@ const Dashboard = () => {
                   <td className="py-2 px-3 border-b">{index + 1}</td>
                   <td className="py-2 px-3 border-b">{item.post}</td>
                   <td className="py-2 px-3 border-b">{item.username}</td>
-                  <td className="py-2 px-3 border-b flex space-x-2">
+                  <td className="py-2 px-3 border-b flex space-x-2 justify-center">
                     <button
                       onClick={() => handleEditPost(item._id)}
                       className="text-indigo-600 hover:text-indigo-800 font-medium"
