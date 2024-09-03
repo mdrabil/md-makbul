@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import 'remixicon/fonts/remixicon.css';
 import { host } from './host';
+import './Header.css'
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(null); // null, 'contact', 'about', 'sign', or 'forgotPassword'
@@ -75,12 +76,14 @@ const Header = () => {
 
   return (
     <header className="">
-      <div className="logo">
+       <div className="logo">
         <Link to="/" style={{ textDecoration: 'none' }}>
-          <h2>
-            DEEN KI <span>baatein</span>
-            <hr />
-          </h2>
+          <div className="logo-container">
+            <img src="https://pngimg.com/uploads/islam/islam_PNG2.png" alt="Logo" />
+            <h2 className="logo-text">
+              DEEN<span>sikhe</span>
+            </h2>
+          </div>
         </Link>
       </div>
       <div className="block">

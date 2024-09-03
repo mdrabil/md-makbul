@@ -107,7 +107,7 @@ const Dashboard = () => {
               className={`p-4 rounded-lg shadow-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}
             >
               <div className="mb-2">
-                <h3 className="text-lg font-semibold">#{index + 1}: {item.post}</h3>
+                <h3 className="text-lg font-semibold"><span className='text-blue-500'>#{index + 1}.</span>  <br /> {item.post} </h3>
                 <p className="text-sm text-gray-500">Written by: {item.username}</p>
               </div>
               <div className="flex justify-end space-x-4">

@@ -50,7 +50,7 @@ html,body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.2rem;
+    padding: 1rem 2rem;
     background: white;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -64,7 +64,7 @@ html,body{
   .logo h2 {
     font-family: "Poetsen One", sans-serif;
     font-weight: 900;
-    color: #333;
+    color: green;
     font-style: normal;
     font-size: 1.4rem;
     font-style: italic;
@@ -72,11 +72,12 @@ html,body{
   }
   
   .logo span {
-    color: #f59e0b;
+    color: black;
     font-family: "Poetsen One", sans-serif;
     font-weight: 900;
-    font-style: normal;
+
     font-size: 1.4rem;
+    letter-spacing: 1px;
     font-style: italic;
     filter: drop-shadow(0px 0px 2px rgb(4, 216, 160));
   
@@ -129,12 +130,11 @@ padding: 30px 0 10px 0;
     border: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 1s ease, color 0.3s ease;
   }
   
   .nav-menu button:hover {
-    background-color: #f59e0b;
-    color: black;
+transform: scale(1.1);
   }
   
   .popup-overlay {
@@ -211,3 +211,9 @@ padding: 30px 0 10px 0;
     letter-spacing: .1px;
   }
   
+.home-text{
+  font-size: 1.9rem;
+  color: lightblue;
+  filter: drop-shadow(1px 1px 1px green);
+}
+
