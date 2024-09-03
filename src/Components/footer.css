@@ -1,77 +1,92 @@
+/* footer.css */
+
+/* General styling for the footer */
 .footer {
-    background-color: #2d3748;
-    width: 100vw;
-    color: white;
-    padding: 32px 0;
-  }
-  
-  .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 16px;
-  }
-  
-  .footer-content {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .footer-section {
-    flex: 1 1 33%;
-    padding: 0 16px;
-    margin-bottom: 24px;
-  }
-  
-  .footer-heading {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 16px;
-  }
-  
-  .footer-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer-item {
-    margin-bottom: 8px;
-  }
-  
-  .footer-link {
-    color: #a0aec0;
-    text-decoration: none;
-  }
-  
-  .footer-link:hover {
-    color: white;
-  }
-  
-  .footer-contact {
-    margin-bottom: 16px;
-  }
-  
-  .footer-socials {
-    display: flex;
-    gap: 16px;
-  }
-  
-  .footer-icon {
-    color: #a0aec0;
-    font-size: 1.5rem;
-    text-decoration: none;
-  }
-  
-  .footer-icon:hover {
-    color: white;
-  }
-  
-  .footer-bottom {
-    text-align: center;
-    color: #a0aec0;
-    padding-top: 16px;
-  }
-  
-  .footer-bottom p {
-    font-size: 0.875rem;
-  }
-  
+  background-color: #222; /* Dark background */
+  padding: 20px;
+  color: #fff;
+  font-size: 12px; /* Smaller font size */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+}
+
+.footer-heading {
+  font-size: 14px; /* Slightly larger heading */
+  margin-bottom: 10px;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-item {
+  margin-bottom: 5px;
+}
+
+.footer-link {
+  /* color: #ccc; Light gray color for links */
+  text-decoration: none;
+  font-size: 10px; /* Smaller font size for links */
+  letter-spacing: .1px;
+}
+
+.footer-link:hover {
+  color: #fff; /* White color on hover */
+}
+
+.footer-contact {
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+/* Social Media Icons */
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-icon {
+  font-size: 17px; /* Size of the icons */
+}
+
+/* Specific colors for each social media icon */
+.footer-icon.youtube {
+  color: #FF0000; /* YouTube red */
+}
+
+.footer-icon.instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-icon.twitter {
+  color: #1DA1F2; /* Twitter blue */
+}
+
+.footer-icon:hover {
+  opacity: 0.8; /* Slight opacity change on hover */
+}
+
+/* Footer bottom text */
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+}

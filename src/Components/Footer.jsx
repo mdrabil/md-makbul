@@ -44,13 +44,13 @@ const Footer = () => {
             <h2 className="footer-heading">Contact Us</h2>
             <p className="footer-contact">India</p>
             <div className="footer-socials">
-              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="footer-icon">
+              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="footer-icon youtube">
                 <i className="ri-youtube-fill"></i>
               </a>
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="footer-icon">
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="footer-icon instagram">
                 <i className="ri-instagram-fill"></i>
               </a>
-              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="footer-icon">
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="footer-icon twitter">
                 <i className="ri-twitter-fill"></i>
               </a>
             </div>

@@ -8,6 +8,8 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [postToDelete, setPostToDelete] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,21 +31,28 @@ const Dashboard = () => {
     navigate(`/update/${id}`);
   };
 
-  const handleDeletePost = async (id) => {
+  const handleDeletePost = async () => {
     try {
-      await axios.delete(`${host}/deleteblog/${id}`);
-      setPosts(posts.filter((post) => post._id !== id));
+      await axios.delete(`${host}/deleteblog/${postToDelete}`);
+      setPosts(posts.filter((post) => post._id !== postToDelete));
+      setShowDeleteModal(false);
+      setPostToDelete(null);
     } catch (err) {
       setError('Failed to delete post');
     }
   };
 
+  const handleDeleteClick = (id) => {
+    setPostToDelete(id);
+    setShowDeleteModal(true);
+  };
+
   const handleAddPost = () => {
-    navigate('/post'); // Navigate to add post page
+    navigate('/post');
   };
 
   const handleBack = () => {
-    navigate(-1); // Navigate back to the previous page
+    navigate(-1);
   };
 
   if (loading) {
@@ -66,72 +75,83 @@ const Dashboard = () => {
     <div className={`min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'} pb-16`}>
       {/* Fixed Header */}
       <div className="bg-gray-800 text-white p-4 fixed top-0 left-0 right-0 z-50 shadow-lg">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={handleBack}
-              className="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-3 rounded"
-            >
-              <i className="ri-arrow-left-line"></i>
-            </button>
-            <div>
-              <h1 className="text-xl font-bold">Dashboard</h1>
-            </div>
-          </div>
-          <div className="flex items-center space-x-2">
-            <button
-              onClick={handleAddPost}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded text-sm"
-            >
-              Add Post
-            </button>
-          </div>
+        <div className="flex justify-between items-center">
+          <button
+            onClick={handleBack}
+            className="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-3 rounded"
+          >
+            <i className="ri-arrow-left-line"></i>
+          </button>
+          <h1 className="text-xl font-bold">Dashboard</h1>
+          <button
+            onClick={handleAddPost}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded text-sm"
+          >
+            Add Post
+          </button>
         </div>
       </div>
 
       {/* Content Area */}
       <div className="container mx-auto mt-24 px-4">
         {/* Display Total Number of Posts */}
-        <div className="mb-6">
+        <div className="mb-4">
           <h2 className="text-xl font-medium">Total Posts: {posts.length}</h2>
         </div>
 
-        {/* Table of Posts */}
-        <div className="overflow-x-auto">
-          <table className={`min-w-full bg-white border border-gray-300 text-sm ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
-            <thead>
-              <tr>
-                <th className="py-2 px-3 border-b-2 border-gray-300">#</th>
-                <th className="py-2 px-3 border-b-2 border-gray-300">Post Name</th>
-                <th className="py-2 px-3 border-b-2 border-gray-300">Written by</th>
-              </tr>
-            </thead>
-            <tbody>
-              {posts.map((item, index) => (
-                <tr key={item._id} className={`hover:bg-gray-100 transition-colors ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
-                  <td className="py-2 px-3 border-b">{index + 1}</td>
-                  <td className="py-2 px-3 border-b">{item.post}</td>
-                  <td className="py-2 px-3 border-b">{item.username}</td>
-                  <td className="py-2 px-3 border-b flex space-x-2 justify-center">
-                    <button
-                      onClick={() => handleEditPost(item._id)}
-                      className="text-indigo-600 hover:text-indigo-800 font-medium"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDeletePost(item._id)}
-                      className="text-red-600 hover:text-red-800 font-medium"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* List of Posts */}
+        <div className="space-y-6">
+          {posts.map((item, index) => (
+            <div
+              key={item._id}
+              className={`p-4 rounded-lg shadow-lg ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}
+            >
+              <div className="mb-2">
+                <h3 className="text-lg font-semibold">#{index + 1}: {item.post}</h3>
+                <p className="text-sm text-gray-500">Written by: {item.username}</p>
+              </div>
+              <div className="flex justify-end space-x-4">
+                <button
+                  onClick={() => handleEditPost(item._id)}
+                  className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-4 rounded"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDeleteClick(item._id)}
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg p-8 w-11/12 sm:w-96">
+            <h2 className="text-xl font-semibold mb-4">Confirm Deletion</h2>
+            <p className="mb-6">Are you sure you want to delete this post? This action cannot be undone.</p>
+            <div className="flex justify-end space-x-4">
+              <button
+                onClick={() => setShowDeleteModal(false)}
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDeletePost}
+                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -74,25 +74,26 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full flex justify-between items-center p-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white z-20 shadow-lg">
+    <header className="">
       <div className="logo">
         <Link to="/" style={{ textDecoration: 'none' }}>
-          <h1 className="text-3xl font-bold text-white">
-            DEEN KI <span className="text-yellow-400">baatein</span>
-          </h1>
+          <h2>
+            DEEN KI <span>baatein</span>
+            <hr />
+          </h2>
         </Link>
       </div>
       <div className="block">
         <i
           className={`ri-menu-fill text-white ${menuOpen ? 'ri-close-fill' : 'ri-menu-fill'}`}
-          style={{ fontSize: '28px', cursor: 'pointer' }}
+     
           onClick={toggleMenu}
         ></i>
       </div>
-      <nav className={`fixed top-0 left-0 w-full bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-center transform ${menuOpen ? 'translate-y-0' : '-translate-y-full'} transition-transform duration-500 ease-in-out z-10`}>
-        <div className="relative">
+      <nav className={`nav-menu ${menuOpen ? 'translate-y-0' : '-translate-y-full'} transition-transform duration-500 ease-in-out z-10`}>
+        <div className="">
           <button 
-            className="absolute top-2 right-2 text-white text-2xl"
+            className="absolute  right-1 font-bolder text-black text-2xl"
             onClick={() => {
               setMenuOpen(false);
               closePopup();
@@ -100,26 +101,31 @@ const Header = () => {
           >
             <i className="ri-close-line"></i>
           </button>
-          <div className="navbar-collapse">
-            <ul className="navbar-nav flex flex-col items-center py-6">
-              <li className="nav-item mb-4">
-                <button onClick={() => handleLinkClick('/')} className="text-white bg-transparent hover:bg-yellow-500 hover:text-black rounded-lg py-2 px-4 transition-colors duration-300 font-semibold">
-                  <h5 className="font-bold text-center">HOME</h5>
-                </button>
-              </li>
-              <li className="nav-item mb-4">
-                <button onClick={() => openPopup('about')} className="text-white bg-transparent hover:bg-yellow-500 hover:text-black rounded-lg py-2 px-4 transition-colors duration-300 font-semibold">
-                  <h5 className="font-bold text-center">ABOUT</h5>
-                </button>
-              </li>
-              <li className="nav-item mb-4">
-                <button onClick={() => openPopup('contact')} className="text-white bg-transparent hover:bg-yellow-500 hover:text-black rounded-lg py-2 px-4 transition-colors duration-300 font-semibold">
-                  <h5 className="font-bold text-center">CONTACT US</h5>
+          <div className="">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <button onClick={() => handleLinkClick('/')} className="">
+                  <h5 className="">HOME</h5>
+                  <hr />
                 </button>
               </li>
               <li className="nav-item">
-                <button onClick={() => openPopup('sign')} className="text-white bg-transparent hover:bg-yellow-500 hover:text-black rounded-lg py-2 px-4 transition-colors duration-300 font-semibold">
-                  <h5 className="font-bold text-center">MD.MAQBUL</h5>
+                <button onClick={() => openPopup('about')} className="">
+                  <h5>ABOUT</h5>
+                
+                  <hr />
+                </button>
+              </li>
+              <li className="nav-item">
+                <button onClick={() => openPopup('contact')} className="">
+                  <h5>CONTACT US</h5>
+                  <hr />
+                </button>
+              </li>
+              <li className="nav-item">
+                <button onClick={() => openPopup('sign')} className="">
+                  <h5>MD.MAQBUL</h5>
+                  <hr />
                 </button>
               </li>
             </ul>
@@ -129,8 +135,8 @@ const Header = () => {
 
       {/* Popups */}
       {showPopup === 'about' && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-30" onClick={closePopup}>
-          <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0  flex items-center justify-center z-30" onClick={closePopup}>
+          <div className="bg-white m-2 text-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
             <h2 className="text-3xl font-bold mb-4">About Us</h2>
             <p className="text-lg mb-6">DEEN KI BAATEIN is a platform that connects people with inspiring stories and meaningful conversations. We aim to provide a space where voices are heard and ideas flourish.</p>
             <button onClick={closePopup} className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors">Close</button>
@@ -139,20 +145,25 @@ const Header = () => {
       )}
 
       {showPopup === 'contact' && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-30">
-          <div className="bg-indigo-600 text-white p-6 rounded-lg shadow-lg max-w-lg w-full">
+        <div className="fixed inset-0  flex items-center justify-center z-30">
+          <div className="bg-gray-200 m-2 text-black p-6 rounded-lg shadow-lg max-w-lg w-30">
             <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
             <p className="text-lg mb-6">We’d love to hear from you! Feel free to reach out to us with any questions or inquiries.</p>
-            <a href="mailto:info@deenkibaatein.com" className="bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-600 transition-colors">Email Us</a>
-            <button onClick={closePopup} className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors mt-4">Close</button>
+           <div>
+            <button className='w-full'>
+           <a href="mailto:info@deenkibaatein.com" className="bg-yellow-500 text-black py-2 px-4 rounded-lg hover:bg-yellow-600 transition-colors" style={{widows:'100%'}}>Email Us</a>
+
+            </button>
+           <button onClick={closePopup} className="bg-red-500 text-white py-2 px-4 w-full rounded-lg hover:bg-red-600 transition-colors mt-4">Close</button>
+           </div>
           </div>
         </div>
       )}
 
       {showPopup === 'sign' && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-30" onClick={closePopup}>
-          <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
-            <h2 className="text-2xl font-bold mb-4 text-center">WELCOME MR.MAQBUL</h2>
+        <div className="fixed inset-0 bg-white bg-opacity- flex items-center justify-center z-30" onClick={closePopup}>
+          <div className="bg-white m-2 text-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
+            <h2 className="text-2xl font-bold mb-4 text-center">MR.MAQBUL</h2>
             {error && <p className="text-red-500 text-center mb-4">{error}</p>}
             <form onSubmit={submitForm}>
               <div className="mb-4">

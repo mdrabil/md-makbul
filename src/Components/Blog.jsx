@@ -125,20 +125,20 @@ const Blog = () => {
   if (error) return <div className="text-center text-red-500">{error}</div>;
 
   return (
-    <section className="blog py-12 mt-5">
+    <section className="blog pb-5 mt-4">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-serif text-center mb-10 text-indigo-600">- BLOGS -</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <h1 className="posts-heading">- BLOGS -</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {posts.map((item) => (
             <div
-              className="bg-gray-100 shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300 border border-gray-300"
+              className="bg-gray shadow-lg rounded-lg p-3 hover:shadow-xl transition-shadow duration-300 border border-gray-100"
               key={item._id}
             >
               <div className="blog-post mb-4">
-                <h2 className="text-2xl font-semibold mb-2 text-indigo-800">
+                <h2 className="posts">
                   <DisplayPost postContent={item.post} /> {/* Use DisplayPost for formatted content */}
                 </h2>
-                <h4 className="text-gray-600 mb-2 float-right">{item.username}</h4>
+                <h4 className="text-gray-600 mb-2 float-right" style={{fontSize:'10px', paddingTop:'10px'}}>{item.username} <hr /> </h4>
               </div>
               <div className="flex justify-around items-center">
                 <button
